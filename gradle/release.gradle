@@ -1,0 +1,49 @@
+apply plugin: "org.mockito.mockito-release-tools.continuous-delivery"
+apply plugin: "org.shipkit.bootstrap"
+
+releasing {
+    gitHub.repository = "mockito/shipkit-bootstrap"
+    gitHub.readOnlyAuthToken = "e7fe8fcdd6ffed5c38498c4c79b2a68e6f6ed1bb"
+
+    //TODO (shipkit) Move that check to "org.shipkit.bootstrap" plugin
+    if (!gitHub.writeAuthToken) {
+        println """[shipkit-bootstrap] Disabling 'gitPush' task.
+  To enable git push, please export 'GH_WRITE_TOKEN' env variable.
+  Generating GitHub personal access token is super easy. Follow the steps at: 
+  https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line
+  When you generate the token and export the variable, delete this code.  
+"""
+        tasks.gitPush.enabled = false
+    }
+
+    //TODO (shipkit) Below are settings that are currently needed
+    // but we will hide some sensible defaults in "org.shipkit.bootstrap" plugin
+    gitHub.writeAuthUser = "szczepiq"
+
+    git.user = "shipkit"
+    git.email = "<shipkit.org@gmail.com>"
+
+    releaseNotes.file = "docs/release-notes.md"
+    releaseNotes.notableFile = "docs/notable-release-notes.md"
+    releaseNotes.labelMapping = [:]
+
+    team.developers = ['yourGitHubUser:Your name']
+}
+
+//TODO (shipkit) Let's get rid of below from the bootstrap project
+//We can preconfigure all that in "org.shipkit.bootstrap" plugin
+allprojects {
+    plugins.withId("org.mockito.mockito-release-tools.bintray") {
+        bintray {
+            key = System.getenv("BINTRAY_API_KEY")
+            pkg {
+                repo = 'examples'
+                user = 'szczepiq'
+                userOrg = 'shipkit'
+                name = rootProject.releasing.notableRelease? "basic-notable-versions" : "basic-all-versions"
+                licenses = ['MIT']
+                labels = ['continuous delivery', 'release automation', 'mockito', 'mockito-release-tools', 'shipkit']
+            }
+        }
+    }
+}
