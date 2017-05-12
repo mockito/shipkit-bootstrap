@@ -40,7 +40,7 @@ allprojects {
                 repo = 'examples'
                 user = 'szczepiq'
                 userOrg = 'shipkit'
-                name = rootProject.releasing.notableRelease? "basic-notable-versions" : "basic-all-versions"
+                name = "can we infer from GitHub user?"
                 licenses = ['MIT']
                 labels = ['continuous delivery', 'release automation', 'mockito', 'mockito-release-tools', 'shipkit']
             }
