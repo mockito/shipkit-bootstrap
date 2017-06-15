@@ -15,7 +15,15 @@ allprojects {
                name = 'maven'
                licenses = ['MIT']
                labels = ['continuous delivery', 'release automation', 'shipkit']
+               desc = "Example package that demonstrates Shipkit"
            }
        }
    }
+}
+
+afterEvaluate {
+    //TODO push below shipkit core plugins
+    bintrayUpload.doLast {
+        println "  Published binaries to: https://bintray.com/shipkit-bootstrap/bootstrap/maven/$version"
+    }
 }
