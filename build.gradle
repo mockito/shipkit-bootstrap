@@ -1,15 +1,19 @@
-plugins {
-  id "org.shipkit.release-notes" version "0.8.87"
-  //TODO change to below when issue is fixed: https://github.com/mockito/shipkit/issues/232
-  //id "org.shipkit.java" version "0.8.87"
+buildscript {
+  repositories {
+    mavenLocal() //for local testing
+    maven { url "https://plugins.gradle.org/m2/" }
+  }
+  dependencies {
+    classpath "gradle.plugin.org.shipkit:shipkit:0.8.93"
+  }
 }
 
 //Configuring the group based on user name
 //So that artifacts don't collide and it is easier to bootstrap and experiment
 group = "org.shipkit.bootstrap.${System.getProperty("user.name")}"
 
-//TODO delete below when issue is fixed: https://github.com/mockito/shipkit/issues/232
-apply plugin: "org.shipkit.java"
-
 //This is a Java project!
 apply plugin: "java"
+
+//That uses Shipkit!
+apply plugin: "org.shipkit.java"
