@@ -2,12 +2,13 @@ This project does not build currently. It is in progress.
 
 # Shipkit bootstrap
 
-Below is not implemented yet!!!
+Below is work in progress
 
 ## Let's ship binaries!
 
 1. Fork and clone this repository to your computer
-2. Run "./gradlew performRelease"
+2. Run "./gradlew bintrayUpload -Pshipkit.dryRun=false"
+   TODO: remove '-Pshipkit.dryRun=false' when https://github.com/mockito/shipkit/issues/236 is implemented
 3. See the binaries published to https://dl.bintray.com/shipkit/shipkit-bootstrap
 
 ## Let's get release notes!
