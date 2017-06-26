@@ -15,5 +15,6 @@ group = "org.shipkit.bootstrap.fancy-release-notes-shipkit"
 //This is a Java project!
 apply plugin: "java"
 
+
 //That uses Shipkit!
 apply plugin: "org.shipkit.java"
