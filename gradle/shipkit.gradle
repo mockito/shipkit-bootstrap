@@ -1,24 +1,34 @@
 shipkit {
-   gitHub.repository = "mockito/shipkit-bootstrap"
-   gitHub.readOnlyAuthToken = "76826c9ec886612f504d12fd4268b16721c4f85d"
-   gitHub.writeAuthUser = "shipkit-org"
+    gitHub.repository = "mockito/shipkit-bootstrap"
+    gitHub.readOnlyAuthToken = "76826c9ec886612f504d12fd4268b16721c4f85d"
+    gitHub.writeAuthUser = "shipkit-org"
+
+    releaseNotes.file = "doc/release-notes/official.md"
+    releaseNotes.labelMapping = [
+            'java-9'          : "Java 9 support",
+            'java-8'          : "Java 8 support",
+            'new feature'     : "New features",
+            'bug'             : "Bugfixes",
+            'improvement'     : "Improvement",
+            'docs'            : 'Documentation'
+    ]
 }
 
 allprojects {
-   plugins.withId("org.shipkit.bintray") {
-       bintray {
-           key = '7ea297848ca948adb7d3ee92a83292112d7ae989'
-           pkg {
-               repo = 'bootstrap'
-               user = 'shipkit-bootstrap-bot'
-               userOrg = 'shipkit-bootstrap'
-               name = 'maven'
-               licenses = ['MIT']
-               labels = ['continuous delivery', 'release automation', 'shipkit']
-               desc = "Example package that demonstrates Shipkit"
-           }
-       }
-   }
+    plugins.withId("org.shipkit.bintray") {
+        bintray {
+            key = '7ea297848ca948adb7d3ee92a83292112d7ae989'
+            pkg {
+                repo = 'bootstrap'
+                user = 'shipkit-bootstrap-bot'
+                userOrg = 'shipkit-bootstrap'
+                name = 'maven'
+                licenses = ['MIT']
+                labels = ['continuous delivery', 'release automation', 'shipkit']
+                desc = "Example package that demonstrates Shipkit"
+            }
+        }
+    }
 }
 
 afterEvaluate {
