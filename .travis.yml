@@ -17,10 +17,10 @@ branches:
   except:
   - /^v\d/
 
+#Below skips the installation step completely (https://docs.travis-ci.com/user/customizing-the-build/#Skipping-the-Installation-Step)
+install:
+ - true
+
 #build and test the release logic
 script:
-  - ./gradlew build -s -i
-
-#check release criteria and make release if criteria are met!
-after_success:
-  - ./gradlew assertReleaseNeeded && ./gradlew ciReleasePrepare && ./gradlew travisRelease
+  - ./gradlew build -s -i && ./gradlew ciPerformRelease
