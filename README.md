@@ -4,6 +4,42 @@ This project does not build currently. It is in progress.
 
 Below is work in progress
 
+## Shipkit workflow test drive in 4 simple steps
+
+1. **Fork & clone**: fork this repo and clone it to your computer
+2. **Dummy change**:  check out new branch, make some dummy change, commit and push to remote repo.
+You can just copy paste below to your terminal:
+
+```
+git checkout -b shipkit-testing
+echo "Shipkit testing" >> README.md
+git commit README.md -m "Shipkit testing"
+git push --set-upstream origin shipkit-testing
+```
+
+3. **Pull request**: in GitHub, open PR with the dummy change pushed in the previous step.
+**Important**: set the "base fork" to your own fork because GitHub by default suggests upstream repo.
+Upstream repo is no good because you don't have permissions and you cannot merge immediately.
+When the PR is created, hit the green button to merge it!
+
+4. **Ship it**: perform release from master branch: pull the dummy change and then ship it.
+
+```
+git checkout master
+git pull
+./gradlew performRelease
+```
+
+Congratulations, you shipped with Shipkit.
+See the build output to inspect what happened.
+You should see something like that:
+
+TODO: screen shot from terminal
+
+----
+
+Below is less than work in progress
+
 ## Let's ship binaries!
 
 1. Fork and clone this repository to your computer
@@ -49,4 +85,4 @@ Imagine that for any dependency you consider upgrading, you can view its neatly 
 Imagine that you can set up practical Continuous Delivery automation in your project in minutes, by using a well behaving and documented Gradle plugin.
 Imagine that you can focus on code and features while the release management, versioning, publishing, release notes generation is taken care for you automagically.
 
-This is the goal of [Mockito Release Tools](https://github.com/mockito/mockito-release-tools) project. The project started in November 2016 and is currently in progress.test
+This is the goal of [Shipkit](https://github.com/mockito/shipkit) project. The project started in November 2016 and is currently in progress.

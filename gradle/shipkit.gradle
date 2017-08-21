@@ -1,7 +1,6 @@
 shipkit {
    gitHub.repository = "mockito/shipkit-bootstrap"
    gitHub.readOnlyAuthToken = "76826c9ec886612f504d12fd4268b16721c4f85d"
-   gitHub.writeAuthUser = "shipkit-org"
 }
 
 allprojects {
@@ -22,8 +21,11 @@ allprojects {
 }
 
 afterEvaluate {
-    //TODO push below shipkit core plugins
-    bintrayUpload.doLast {
-        println "  Published binaries to: https://bintray.com/shipkit-bootstrap/bootstrap/maven/$version"
+    performRelease.doLast {
+        println """
+  Release shipped!
+    - Files in Bintray:   https://dl.bintray.com/shipkit-bootstrap/bootstrap/org/shipkit/bootstrap/${System.getProperty("user.name")}/shipkit-bootstrap/$version
+    - Bintray repository: https://bintray.com/shipkit-bootstrap/bootstrap/maven/$version
+    - Release notes:      TODO"""
     }
 }
