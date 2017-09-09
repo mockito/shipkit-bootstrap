@@ -6,5 +6,4 @@ Shipkit enables teams more productive: engineers focus on code and features, not
 
 You can use Shipkit Bootstrap project to test drive Shipkit and learn how to use it.
 
-**To get started go to the [Bootstrapping Wiki Page](https://github.com/mockito/shipkit-bootstrap/wiki).**Shipkit testing
-Shipkit testing
+**To get started go to the [Bootstrapping Wiki Page](https://github.com/mockito/shipkit-bootstrap/wiki).**
