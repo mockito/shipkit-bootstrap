@@ -29,3 +29,7 @@ afterEvaluate {
     - Release notes:      TODO"""
     }
 }
+
+//Below is not essential but it is useful for Shipkit developers
+//because Travis/Shipkit will use it to automatically send pull requests with version bumps of Shipkit
+apply plugin: 'org.shipkit.upgrade-dependency'
