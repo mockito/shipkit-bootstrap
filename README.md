@@ -13,4 +13,4 @@ Steps:
 
 1. Fork this repository and clone it to your local
 2. Fix TODOs in "build.gradle" file
-3. Follow the steps from [Getting Started Guide](https://github.com/mockito/shipkit/blob/master/docs/getting-strated.md)
+3. Follow the steps from [Getting Started Guide](https://github.com/mockito/shipkit/blob/master/docs/getting-started.md)
