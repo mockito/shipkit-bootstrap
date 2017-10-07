@@ -1,21 +1,18 @@
-//Adding Shipkit jars to the Gradle Build classpath
-buildscript {
-  repositories {
-    mavenLocal() //for local testing
-    maven { url "https://plugins.gradle.org/m2/" }
-  }
-  dependencies {
-    classpath "org.shipkit:shipkit:0.9.88"
-  }
-}
+//TODO Add Shipkit to Gradle build
+// First, identify latest version from: https://plugins.gradle.org/plugin/org.shipkit.java
+// Then, uncomment below:
+
+//plugins {
+//  id "org.shipkit.java" version "TODO"
+//}
+
+//This is a Java project
+apply plugin: "java"
 
 //Configuring the group based on user name
 //so that artifacts published from this build don't collide
 //with artifacts published by other users that experiment with 'shipkit-boostrap'
 group = "org.shipkit.bootstrap.${System.getProperty("user.name")}"
 
-//This is a Java project...
-apply plugin: "java"
-
-//...that uses Shipkit!
-apply plugin: "org.shipkit.java"
+//TODO enable Shipkit
+//apply plugin: "org.shipkit.java"
