@@ -1,3 +1,7 @@
+# Deprecated
+
+The continuation of Shipkit plugins can be found at https://github.com/shipkit/shipkit-changelog
+
 # Shipkit Bootstrap Project
 
 Shipkit (http://shipkit.org) is a toolkit for shipping it.
